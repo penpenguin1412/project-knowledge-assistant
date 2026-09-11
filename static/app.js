@@ -41,6 +41,7 @@ function projectPath(suffix) {
 }
 function showPage(page) {
   state.page=page;
+  $('#notice').hidden=true;
   document.querySelectorAll('.page').forEach(el=>el.hidden=el.id!==page);
   document.querySelectorAll('.nav').forEach(el=>{el.classList.toggle('active',el.dataset.page===page);if(el.dataset.page===page)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
   $('#page-title').textContent=labels[page];
