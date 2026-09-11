@@ -37,6 +37,7 @@ with TestClient(app,headers={'X-Assistant-Request':'1'}) as client:
         citation_valid=all(c.get('quote') and c['quote'] in c['text'] for c in citations) if citations else None
         results.append({**case,'http_status':response.status_code,'retrieval_hit_at_5':retrieval_hit,
                         'quote_verbatim_check':citation_valid,'human_semantic_verdict':'not_reviewed','output':output})
+        if args.live:print(f"{case['id']}: HTTP {response.status_code}, abstained={output.get('abstained')}, model_called={bool(output.get('provider'))}",flush=True)
 answerable=[r for r in results if r['answerable']]
 unanswerable=[r for r in results if not r['answerable']]
 summary={'created_at':datetime.now(timezone.utc).isoformat(),'mode':'real_model' if args.live else 'evidence_only',
@@ -44,7 +45,9 @@ summary={'created_at':datetime.now(timezone.utc).isoformat(),'mode':'real_model'
          'case_count':len(results),'http_successes':sum(r['http_status']==200 for r in results),
          'retrieval_hit_at_5':f"{sum(bool(r['retrieval_hit_at_5']) for r in answerable)}/{len(answerable)}",
          'unanswerable_questions_with_no_evidence':sum(r['output'].get('abstained') is True for r in unanswerable) if not args.live else None,
-         'model_refusals_on_unanswerable':sum(r['output'].get('abstained') is True for r in unanswerable) if args.live else None,
+         'model_calls_completed':sum(bool(r['output'].get('provider')) for r in results) if args.live else 0,
+         'pipeline_refusals_on_unanswerable':sum(r['output'].get('abstained') is True for r in unanswerable) if args.live else None,
+         'model_refusals_on_unanswerable':sum(r['output'].get('abstained') is True and bool(r['output'].get('provider')) for r in unanswerable) if args.live else None,
          'model_semantic_accuracy':'NOT SCORED — requires human review of each claim',
          'pipeline_sha256':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in ['core.py','model.py','app.py','eval_cases.json']},
          'sources':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((ROOT/'examples').glob('*.md'))}}

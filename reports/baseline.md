@@ -1,6 +1,6 @@
 # 30 题评测记录
 
-模式：evidence_only；时间：2026-09-11T15:14:41.903538+00:00
+模式：evidence_only；时间：2026-09-11T16:43:52.197539+00:00
 HTTP 成功：30/30；可回答题的原文命中@5：18/18。
 真实模型评测：NOT RUN — no model credentials/cost authorization used。
 

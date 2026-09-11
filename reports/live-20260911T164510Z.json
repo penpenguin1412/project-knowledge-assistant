@@ -1,15 +1,15 @@
 {
   "summary": {
-    "created_at": "2026-09-11T16:43:52.197539+00:00",
-    "mode": "evidence_only",
-    "real_model_evaluation": "NOT RUN — no model credentials/cost authorization used",
+    "created_at": "2026-09-11T16:45:10.719997+00:00",
+    "mode": "real_model",
+    "real_model_evaluation": "executed",
     "case_count": 30,
     "http_successes": 30,
     "retrieval_hit_at_5": "18/18",
-    "unanswerable_questions_with_no_evidence": 5,
-    "model_calls_completed": 0,
-    "pipeline_refusals_on_unanswerable": null,
-    "model_refusals_on_unanswerable": null,
+    "unanswerable_questions_with_no_evidence": null,
+    "model_calls_completed": 25,
+    "pipeline_refusals_on_unanswerable": 12,
+    "model_refusals_on_unanswerable": 7,
     "model_semantic_accuracy": "NOT SCORED — requires human review of each claim",
     "pipeline_sha256": {
       "core.py": "772069576c95b01c133d97e0a5d775c94f31b60a83ad92bab10a077858c89922",
@@ -34,9 +34,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "项目目标是梳理青禾社区公共空间的使用需求，形成空间改善建议。 [1]",
         "citations": [
           {
             "id": 3,
@@ -45,7 +45,8 @@
             "text": "项目目标：梳理青禾社区公共空间的使用需求，形成空间改善建议。",
             "document_name": "01-项目简报.md",
             "score": 5.832,
-            "quote": "项目目标：梳理青禾社区公共空间的使用需求，形成空间改善建议。"
+            "quote": "项目目标：梳理青禾社区公共空间的使用需求，形成空间改善建议。",
+            "claim": "项目目标是梳理青禾社区公共空间的使用需求，形成空间改善建议。"
           }
         ],
         "candidates": [
@@ -58,8 +59,19 @@
             "score": 5.832
           }
         ],
-        "run_id": "ea5e22046ac94ac8a896139e0b8c316e",
-        "elapsed_ms": 15
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11500,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 66,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "c40abe2653d4406e911f32bfb8f35ad2",
+        "elapsed_ms": 38985
       }
     },
     {
@@ -73,9 +85,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "项目范围包含青禾社区东侧口袋公园。 [1]\n\n项目范围包含中心广场。 [2]\n\n项目范围包含北侧步行街。 [3]",
         "citations": [
           {
             "id": 4,
@@ -84,34 +96,28 @@
             "text": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。",
             "document_name": "01-项目简报.md",
             "score": 11.37,
-            "quote": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。"
+            "quote": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。",
+            "claim": "项目范围包含青禾社区东侧口袋公园。"
           },
           {
-            "id": 3,
+            "id": 4,
             "document_id": 1,
-            "location": "文本 · 行 3 · 字 1",
-            "text": "项目目标：梳理青禾社区公共空间的使用需求，形成空间改善建议。",
+            "location": "文本 · 行 4 · 字 1",
+            "text": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。",
             "document_name": "01-项目简报.md",
-            "score": 7.304,
-            "quote": "项目目标：梳理青禾社区公共空间的使用需求，形成空间改善建议。"
+            "score": 11.37,
+            "quote": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。",
+            "claim": "项目范围包含中心广场。"
           },
           {
-            "id": 1,
+            "id": 4,
             "document_id": 1,
-            "location": "文本 · 行 1 · 字 1",
-            "text": "# 青禾社区公共空间调研 · 自编虚构示例",
+            "location": "文本 · 行 4 · 字 1",
+            "text": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。",
             "document_name": "01-项目简报.md",
-            "score": 6.827,
-            "quote": "# 青禾社区公共空间调研 · 自编虚构示例"
-          },
-          {
-            "id": 19,
-            "document_id": 1,
-            "location": "文本 · 行 19 · 字 1",
-            "text": "项目暂不包含：施工图、工程报价、实际施工和商业运营方案。",
-            "document_name": "01-项目简报.md",
-            "score": 4.212,
-            "quote": "项目暂不包含：施工图、工程报价、实际施工和商业运营方案。"
+            "score": 11.37,
+            "quote": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。",
+            "claim": "项目范围包含北侧步行街。"
           }
         ],
         "candidates": [
@@ -148,8 +154,19 @@
             "score": 4.212
           }
         ],
-        "run_id": "ddfd0fd1dfa24f65961e2d3ea8285b64",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11718,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 158,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "264c214bf7794afcb2512d934f1fa722",
+        "elapsed_ms": 18781
       }
     },
     {
@@ -163,9 +180,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "项目负责人是林悦。 [1]",
         "citations": [
           {
             "id": 5,
@@ -174,43 +191,8 @@
             "text": "项目负责人：林悦；研究助理：陈舟；设计负责人：许宁。",
             "document_name": "01-项目简报.md",
             "score": 9.104,
-            "quote": "项目负责人：林悦；研究助理：陈舟；设计负责人：许宁。"
-          },
-          {
-            "id": 11,
-            "document_id": 1,
-            "location": "文本 · 行 11 · 字 1",
-            "text": "项目验收日期：2026-09-30；验收负责人：林悦。",
-            "document_name": "01-项目简报.md",
-            "score": 4.783,
-            "quote": "项目验收日期：2026-09-30；验收负责人：林悦。"
-          },
-          {
-            "id": 25,
-            "document_id": 2,
-            "location": "文本 · 行 6 · 字 1",
-            "text": "待办：补充八名居民访谈 | 负责人：陈舟 | 截止：2026-09-15",
-            "document_name": "02-会议记录.md",
-            "score": 3.124,
-            "quote": "待办：补充八名居民访谈 | 负责人：陈舟 | 截止：2026-09-15"
-          },
-          {
-            "id": 28,
-            "document_id": 2,
-            "location": "文本 · 行 9 · 字 1",
-            "text": "待办：联系社区确认评审场地 | 负责人：待定 | 截止：待定",
-            "document_name": "02-会议记录.md",
-            "score": 3.124,
-            "quote": "待办：联系社区确认评审场地 | 负责人：待定 | 截止：待定"
-          },
-          {
-            "id": 27,
-            "document_id": 2,
-            "location": "文本 · 行 8 · 字 1",
-            "text": "待办：复核匿名化访谈记录 | 负责人：林悦 | 截止：2026-09-20",
-            "document_name": "02-会议记录.md",
-            "score": 3.05,
-            "quote": "待办：复核匿名化访谈记录 | 负责人：林悦 | 截止：2026-09-20"
+            "quote": "项目负责人：林悦",
+            "claim": "项目负责人是林悦。"
           }
         ],
         "candidates": [
@@ -255,8 +237,19 @@
             "score": 3.05
           }
         ],
-        "run_id": "72c0628c9d3344e09a405067db91300d",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11800,
+            "cached_input_tokens": 2688,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 37,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "8ba2bc11f4d543c1b567450866a1845a",
+        "elapsed_ms": 9594
       }
     },
     {
@@ -270,9 +263,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "项目启动日期是2026-09-01。 [1]",
         "citations": [
           {
             "id": 6,
@@ -281,16 +274,8 @@
             "text": "项目启动日期：2026-09-01。",
             "document_name": "01-项目简报.md",
             "score": 15.909,
-            "quote": "项目启动日期：2026-09-01。"
-          },
-          {
-            "id": 11,
-            "document_id": 1,
-            "location": "文本 · 行 11 · 字 1",
-            "text": "项目验收日期：2026-09-30；验收负责人：林悦。",
-            "document_name": "01-项目简报.md",
-            "score": 3.493,
-            "quote": "项目验收日期：2026-09-30；验收负责人：林悦。"
+            "quote": "项目启动日期：2026-09-01。",
+            "claim": "项目启动日期是2026-09-01。"
           }
         ],
         "candidates": [
@@ -311,8 +296,19 @@
             "score": 3.493
           }
         ],
-        "run_id": "9fd928c567134103a7b5dbd0cfc53f2f",
-        "elapsed_ms": 16
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11564,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 48,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "6b3b37748d96453ea83cdb318e052f9e",
+        "elapsed_ms": 16015
       }
     },
     {
@@ -326,9 +322,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "访谈样本目标是24名居民。 [1]",
         "citations": [
           {
             "id": 7,
@@ -337,34 +333,8 @@
             "text": "访谈样本目标：24 名居民，覆盖老年人、亲子家庭和通勤青年三类使用者。",
             "document_name": "01-项目简报.md",
             "score": 14.698,
-            "quote": "访谈样本目标：24 名居民，覆盖老年人、亲子家庭和通勤青年三类使用者。"
-          },
-          {
-            "id": 22,
-            "document_id": 2,
-            "location": "文本 · 行 3 · 字 1",
-            "text": "访谈当前进度：已完成 16 名居民访谈，距离 24 名目标尚差 8 名。",
-            "document_name": "02-会议记录.md",
-            "score": 8.236,
-            "quote": "访谈当前进度：已完成 16 名居民访谈，距离 24 名目标尚差 8 名。"
-          },
-          {
-            "id": 25,
-            "document_id": 2,
-            "location": "文本 · 行 6 · 字 1",
-            "text": "待办：补充八名居民访谈 | 负责人：陈舟 | 截止：2026-09-15",
-            "document_name": "02-会议记录.md",
-            "score": 5.995,
-            "quote": "待办：补充八名居民访谈 | 负责人：陈舟 | 截止：2026-09-15"
-          },
-          {
-            "id": 13,
-            "document_id": 1,
-            "location": "文本 · 行 13 · 字 1",
-            "text": "居民隐私要求：不采集身份证号、手机号和人脸照片；访谈记录使用匿名编号。",
-            "document_name": "01-项目简报.md",
-            "score": 2.798,
-            "quote": "居民隐私要求：不采集身份证号、手机号和人脸照片；访谈记录使用匿名编号。"
+            "quote": "访谈样本目标：24 名居民",
+            "claim": "访谈样本目标是24名居民。"
           }
         ],
         "candidates": [
@@ -401,8 +371,19 @@
             "score": 2.798
           }
         ],
-        "run_id": "5928876d7f1e4f6eac93d2b5f570677f",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11743,
+            "cached_input_tokens": 10240,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 45,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "9c767cda162c46419f2d19b75741ea98",
+        "elapsed_ms": 9860
       }
     },
     {
@@ -416,9 +397,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "调研方法包括半结构访谈。 [1]\n\n调研方法包括分时观察。 [2]\n\n调研方法包括现场步行记录。 [3]",
         "citations": [
           {
             "id": 8,
@@ -427,7 +408,28 @@
             "text": "调研方法：半结构访谈、分时观察和现场步行记录。",
             "document_name": "01-项目简报.md",
             "score": 8.903,
-            "quote": "调研方法：半结构访谈、分时观察和现场步行记录。"
+            "quote": "调研方法：半结构访谈、分时观察和现场步行记录。",
+            "claim": "调研方法包括半结构访谈。"
+          },
+          {
+            "id": 8,
+            "document_id": 1,
+            "location": "文本 · 行 8 · 字 1",
+            "text": "调研方法：半结构访谈、分时观察和现场步行记录。",
+            "document_name": "01-项目简报.md",
+            "score": 8.903,
+            "quote": "调研方法：半结构访谈、分时观察和现场步行记录。",
+            "claim": "调研方法包括分时观察。"
+          },
+          {
+            "id": 8,
+            "document_id": 1,
+            "location": "文本 · 行 8 · 字 1",
+            "text": "调研方法：半结构访谈、分时观察和现场步行记录。",
+            "document_name": "01-项目简报.md",
+            "score": 8.903,
+            "quote": "调研方法：半结构访谈、分时观察和现场步行记录。",
+            "claim": "调研方法包括现场步行记录。"
           }
         ],
         "candidates": [
@@ -440,8 +442,19 @@
             "score": 8.903
           }
         ],
-        "run_id": "0fbca0acecf84c9293d6a94e966a8f1d",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11499,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 128,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "b5e986fd03f94953a2824c149daecb4f",
+        "elapsed_ms": 13360
       }
     },
     {
@@ -455,9 +468,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "工作日观察时段是07:00—09:00。 [1]",
         "citations": [
           {
             "id": 9,
@@ -466,7 +479,8 @@
             "text": "观察时段：工作日 07:00—09:00、周末 16:00—18:00。",
             "document_name": "01-项目简报.md",
             "score": 15.672,
-            "quote": "观察时段：工作日 07:00—09:00、周末 16:00—18:00。"
+            "quote": "观察时段：工作日 07:00—09:00、周末 16:00—18:00。",
+            "claim": "工作日观察时段是07:00—09:00。"
           }
         ],
         "candidates": [
@@ -479,8 +493,19 @@
             "score": 15.672
           }
         ],
-        "run_id": "cd04c6f1515e4231b0e9e60b97d915bc",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11510,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 66,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "da6fb7790676451ea2529219c4870a08",
+        "elapsed_ms": 11562
       }
     },
     {
@@ -494,9 +519,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "项目交付物包括现状问题地图。 [1]\n\n项目交付物包括居民需求清单。 [2]\n\n项目交付物包括三张空间改善示意图。 [3]",
         "citations": [
           {
             "id": 10,
@@ -505,7 +530,28 @@
             "text": "交付物：现状问题地图、居民需求清单、三张空间改善示意图。",
             "document_name": "01-项目简报.md",
             "score": 5.877,
-            "quote": "交付物：现状问题地图、居民需求清单、三张空间改善示意图。"
+            "quote": "交付物：现状问题地图、居民需求清单、三张空间改善示意图。",
+            "claim": "项目交付物包括现状问题地图。"
+          },
+          {
+            "id": 10,
+            "document_id": 1,
+            "location": "文本 · 行 10 · 字 1",
+            "text": "交付物：现状问题地图、居民需求清单、三张空间改善示意图。",
+            "document_name": "01-项目简报.md",
+            "score": 5.877,
+            "quote": "交付物：现状问题地图、居民需求清单、三张空间改善示意图。",
+            "claim": "项目交付物包括居民需求清单。"
+          },
+          {
+            "id": 10,
+            "document_id": 1,
+            "location": "文本 · 行 10 · 字 1",
+            "text": "交付物：现状问题地图、居民需求清单、三张空间改善示意图。",
+            "document_name": "01-项目简报.md",
+            "score": 5.877,
+            "quote": "交付物：现状问题地图、居民需求清单、三张空间改善示意图。",
+            "claim": "项目交付物包括三张空间改善示意图。"
           }
         ],
         "candidates": [
@@ -518,8 +564,19 @@
             "score": 5.877
           }
         ],
-        "run_id": "be94972a3ca244009740b1daf564055c",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11504,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 147,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "0a1897f649444717a093a8bdf6495aff",
+        "elapsed_ms": 27734
       }
     },
     {
@@ -533,9 +590,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "项目验收日期是2026-09-30。 [1]",
         "citations": [
           {
             "id": 11,
@@ -544,16 +601,8 @@
             "text": "项目验收日期：2026-09-30；验收负责人：林悦。",
             "document_name": "01-项目简报.md",
             "score": 14.992,
-            "quote": "项目验收日期：2026-09-30；验收负责人：林悦。"
-          },
-          {
-            "id": 6,
-            "document_id": 1,
-            "location": "文本 · 行 6 · 字 1",
-            "text": "项目启动日期：2026-09-01。",
-            "document_name": "01-项目简报.md",
-            "score": 4.003,
-            "quote": "项目启动日期：2026-09-01。"
+            "quote": "项目验收日期：2026-09-30",
+            "claim": "项目验收日期是2026-09-30。"
           }
         ],
         "candidates": [
@@ -574,8 +623,19 @@
             "score": 4.003
           }
         ],
-        "run_id": "14c07b8f20a74295981295c01a5e3143",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11564,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 49,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "43c635b82285407eab8a724e6237155c",
+        "elapsed_ms": 52578
       }
     },
     {
@@ -589,9 +649,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "项目经费上限为8000元。 [1]",
         "citations": [
           {
             "id": 12,
@@ -600,7 +660,8 @@
             "text": "经费上限：8000 元；交通与打印支出需要保留票据。",
             "document_name": "01-项目简报.md",
             "score": 9.651,
-            "quote": "经费上限：8000 元；交通与打印支出需要保留票据。"
+            "quote": "经费上限：8000 元",
+            "claim": "项目经费上限为8000元。"
           }
         ],
         "candidates": [
@@ -613,8 +674,19 @@
             "score": 9.651
           }
         ],
-        "run_id": "c5080805b02c462193655a7310063577",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11504,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 44,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "6a842e44cae14ccf9ea304edaf0234b3",
+        "elapsed_ms": 11828
       }
     },
     {
@@ -628,9 +700,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "禁止采集居民身份证号。 [1]\n\n禁止采集居民手机号。 [2]\n\n禁止采集居民人脸照片。 [3]",
         "citations": [
           {
             "id": 13,
@@ -639,7 +711,28 @@
             "text": "居民隐私要求：不采集身份证号、手机号和人脸照片；访谈记录使用匿名编号。",
             "document_name": "01-项目简报.md",
             "score": 14.229,
-            "quote": "居民隐私要求：不采集身份证号、手机号和人脸照片；访谈记录使用匿名编号。"
+            "quote": "居民隐私要求：不采集身份证号、手机号和人脸照片；",
+            "claim": "禁止采集居民身份证号。"
+          },
+          {
+            "id": 13,
+            "document_id": 1,
+            "location": "文本 · 行 13 · 字 1",
+            "text": "居民隐私要求：不采集身份证号、手机号和人脸照片；访谈记录使用匿名编号。",
+            "document_name": "01-项目简报.md",
+            "score": 14.229,
+            "quote": "居民隐私要求：不采集身份证号、手机号和人脸照片；",
+            "claim": "禁止采集居民手机号。"
+          },
+          {
+            "id": 13,
+            "document_id": 1,
+            "location": "文本 · 行 13 · 字 1",
+            "text": "居民隐私要求：不采集身份证号、手机号和人脸照片；访谈记录使用匿名编号。",
+            "document_name": "01-项目简报.md",
+            "score": 14.229,
+            "quote": "居民隐私要求：不采集身份证号、手机号和人脸照片；",
+            "claim": "禁止采集居民人脸照片。"
           }
         ],
         "candidates": [
@@ -652,8 +745,19 @@
             "score": 14.229
           }
         ],
-        "run_id": "d4a99289974a49caba44c5bd54785550",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11509,
+            "cached_input_tokens": 6784,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 120,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "5aba4b53725c4df3b6e70aa95f1014f2",
+        "elapsed_ms": 14469
       }
     },
     {
@@ -667,9 +771,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "原始资料保存在项目共享盘的 survey/raw 目录。 [1]",
         "citations": [
           {
             "id": 14,
@@ -678,7 +782,8 @@
             "text": "原始资料保存位置：项目共享盘的 survey/raw 目录；只保存脱敏记录。",
             "document_name": "01-项目简报.md",
             "score": 20.492,
-            "quote": "原始资料保存位置：项目共享盘的 survey/raw 目录；只保存脱敏记录。"
+            "quote": "原始资料保存位置：项目共享盘的 survey/raw 目录",
+            "claim": "原始资料保存在项目共享盘的 survey/raw 目录。"
           }
         ],
         "candidates": [
@@ -691,8 +796,19 @@
             "score": 20.492
           }
         ],
-        "run_id": "3641065ee6c2401fb00b22cb1b6a361d",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11504,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 54,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "1af8d42eaa74406ca1f83052310f183f",
+        "elapsed_ms": 12641
       }
     },
     {
@@ -706,9 +822,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "文件按“日期_空间名称_资料类型”命名。 [1]",
         "citations": [
           {
             "id": 15,
@@ -717,7 +833,8 @@
             "text": "文件命名规范：日期_空间名称_资料类型，例如 20260901_中心广场_观察记录。",
             "document_name": "01-项目简报.md",
             "score": 14.693,
-            "quote": "文件命名规范：日期_空间名称_资料类型，例如 20260901_中心广场_观察记录。"
+            "quote": "文件命名规范：日期_空间名称_资料类型，例如 20260901_中心广场_观察记录。",
+            "claim": "文件按“日期_空间名称_资料类型”命名。"
           }
         ],
         "candidates": [
@@ -730,8 +847,19 @@
             "score": 14.693
           }
         ],
-        "run_id": "7411132f90da4c89826467f13b146a41",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11507,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 65,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "914937bcdc7740e4892b15b9281b0ca2",
+        "elapsed_ms": 10703
       }
     },
     {
@@ -745,9 +873,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "方案须至少由两名团队成员交叉核对。 [1]",
         "citations": [
           {
             "id": 16,
@@ -756,7 +884,8 @@
             "text": "评审规则：方案须至少由两名团队成员交叉核对。",
             "document_name": "01-项目简报.md",
             "score": 24.059,
-            "quote": "评审规则：方案须至少由两名团队成员交叉核对。"
+            "quote": "评审规则：方案须至少由两名团队成员交叉核对。",
+            "claim": "方案须至少由两名团队成员交叉核对。"
           }
         ],
         "candidates": [
@@ -769,8 +898,19 @@
             "score": 24.059
           }
         ],
-        "run_id": "b1f7042ad6fb48daa975bd16f8247ed6",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11504,
+            "cached_input_tokens": 10240,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 56,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "1a42b905fc8d4e49ab3b4ce27faa5260",
+        "elapsed_ms": 10922
       }
     },
     {
@@ -784,9 +924,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "雨天现场观察延期。 [1]\n\n具体补测日期由负责人另行确认。 [2]",
         "citations": [
           {
             "id": 17,
@@ -795,16 +935,18 @@
             "text": "风险预案：雨天现场观察延期，具体补测日期由负责人另行确认。",
             "document_name": "01-项目简报.md",
             "score": 12.043,
-            "quote": "风险预案：雨天现场观察延期，具体补测日期由负责人另行确认。"
+            "quote": "雨天现场观察延期",
+            "claim": "雨天现场观察延期。"
           },
           {
-            "id": 8,
+            "id": 17,
             "document_id": 1,
-            "location": "文本 · 行 8 · 字 1",
-            "text": "调研方法：半结构访谈、分时观察和现场步行记录。",
+            "location": "文本 · 行 17 · 字 1",
+            "text": "风险预案：雨天现场观察延期，具体补测日期由负责人另行确认。",
             "document_name": "01-项目简报.md",
-            "score": 4.287,
-            "quote": "调研方法：半结构访谈、分时观察和现场步行记录。"
+            "score": 12.043,
+            "quote": "具体补测日期由负责人另行确认。",
+            "claim": "具体补测日期由负责人另行确认。"
           }
         ],
         "candidates": [
@@ -825,8 +967,19 @@
             "score": 4.287
           }
         ],
-        "run_id": "830edd7315e6475a98c5d44f3a55eca4",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11572,
+            "cached_input_tokens": 10240,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 68,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "e4058319719444e7ad533626fd02677c",
+        "elapsed_ms": 12016
       }
     },
     {
@@ -840,9 +993,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "无障碍关注点包括入口坡道。 [1]\n\n无障碍关注点包括座椅间距。 [2]\n\n无障碍关注点包括连续步行路径。 [3]",
         "citations": [
           {
             "id": 18,
@@ -851,7 +1004,28 @@
             "text": "无障碍关注点：入口坡道、座椅间距、连续步行路径。",
             "document_name": "01-项目简报.md",
             "score": 16.084,
-            "quote": "无障碍关注点：入口坡道、座椅间距、连续步行路径。"
+            "quote": "无障碍关注点：入口坡道、座椅间距、连续步行路径。",
+            "claim": "无障碍关注点包括入口坡道。"
+          },
+          {
+            "id": 18,
+            "document_id": 1,
+            "location": "文本 · 行 18 · 字 1",
+            "text": "无障碍关注点：入口坡道、座椅间距、连续步行路径。",
+            "document_name": "01-项目简报.md",
+            "score": 16.084,
+            "quote": "无障碍关注点：入口坡道、座椅间距、连续步行路径。",
+            "claim": "无障碍关注点包括座椅间距。"
+          },
+          {
+            "id": 18,
+            "document_id": 1,
+            "location": "文本 · 行 18 · 字 1",
+            "text": "无障碍关注点：入口坡道、座椅间距、连续步行路径。",
+            "document_name": "01-项目简报.md",
+            "score": 16.084,
+            "quote": "无障碍关注点：入口坡道、座椅间距、连续步行路径。",
+            "claim": "无障碍关注点包括连续步行路径。"
           }
         ],
         "candidates": [
@@ -864,8 +1038,19 @@
             "score": 16.084
           }
         ],
-        "run_id": "1e1a1398d5824c73a4d7bf0fe69f3f71",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11504,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 144,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "25cc71c199a54097a22a2a4867138686",
+        "elapsed_ms": 17828
       }
     },
     {
@@ -879,9 +1064,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "访谈当前还差8名。 [1]",
         "citations": [
           {
             "id": 22,
@@ -890,7 +1075,8 @@
             "text": "访谈当前进度：已完成 16 名居民访谈，距离 24 名目标尚差 8 名。",
             "document_name": "02-会议记录.md",
             "score": 14.178,
-            "quote": "访谈当前进度：已完成 16 名居民访谈，距离 24 名目标尚差 8 名。"
+            "quote": "访谈当前进度：已完成 16 名居民访谈，距离 24 名目标尚差 8 名。",
+            "claim": "访谈当前还差8名。"
           }
         ],
         "candidates": [
@@ -903,8 +1089,19 @@
             "score": 14.178
           }
         ],
-        "run_id": "967d7cd5721c403ca0115b82ec2d6284",
-        "elapsed_ms": 15
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11511,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 60,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "802ce7817f3e49dc8124a8a5dbb623c5",
+        "elapsed_ms": 13812
       }
     },
     {
@@ -918,9 +1115,9 @@
       "quote_verbatim_check": true,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
+        "answer": "下一次例会日期是2026-09-16。 [1]\n\n下一次例会地点是社区活动室。 [2]",
         "citations": [
           {
             "id": 29,
@@ -929,7 +1126,18 @@
             "text": "下一次例会日期：2026-09-16，地点为社区活动室。",
             "document_name": "02-会议记录.md",
             "score": 20.615,
-            "quote": "下一次例会日期：2026-09-16，地点为社区活动室。"
+            "quote": "下一次例会日期：2026-09-16",
+            "claim": "下一次例会日期是2026-09-16。"
+          },
+          {
+            "id": 29,
+            "document_id": 2,
+            "location": "文本 · 行 10 · 字 1",
+            "text": "下一次例会日期：2026-09-16，地点为社区活动室。",
+            "document_name": "02-会议记录.md",
+            "score": 20.615,
+            "quote": "下一次例会日期：2026-09-16，地点为社区活动室。",
+            "claim": "下一次例会地点是社区活动室。"
           }
         ],
         "candidates": [
@@ -942,8 +1150,19 @@
             "score": 20.615
           }
         ],
-        "run_id": "f06dd48c13274c31865e46434c3f8d9c",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11503,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 91,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "54b4c60179d14276a4b214d24ab363d7",
+        "elapsed_ms": 10765
       }
     },
     {
@@ -954,23 +1173,13 @@
       "expected": "",
       "http_status": 200,
       "retrieval_hit_at_5": null,
-      "quote_verbatim_check": true,
+      "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
-        "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
-        "citations": [
-          {
-            "id": 30,
-            "document_id": 2,
-            "location": "文本 · 行 11 · 字 1",
-            "text": "未决事项：座椅采购预算尚未确定，不应据此输出采购金额。",
-            "document_name": "02-会议记录.md",
-            "score": 14.383,
-            "quote": "未决事项：座椅采购预算尚未确定，不应据此输出采购金额。"
-          }
-        ],
+        "mode": "llm",
+        "abstained": true,
+        "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
+        "citations": [],
         "candidates": [
           {
             "id": 30,
@@ -981,8 +1190,19 @@
             "score": 14.383
           }
         ],
-        "run_id": "c1100ad02499436aab50b90093b7de33",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11504,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "cb87fd3765a64928aa1162d6c87dedc2",
+        "elapsed_ms": 8328
       }
     },
     {
@@ -993,23 +1213,13 @@
       "expected": "",
       "http_status": 200,
       "retrieval_hit_at_5": null,
-      "quote_verbatim_check": true,
+      "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
-        "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
-        "citations": [
-          {
-            "id": 17,
-            "document_id": 1,
-            "location": "文本 · 行 17 · 字 1",
-            "text": "风险预案：雨天现场观察延期，具体补测日期由负责人另行确认。",
-            "document_name": "01-项目简报.md",
-            "score": 9.866,
-            "quote": "风险预案：雨天现场观察延期，具体补测日期由负责人另行确认。"
-          }
-        ],
+        "mode": "llm",
+        "abstained": true,
+        "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
+        "citations": [],
         "candidates": [
           {
             "id": 17,
@@ -1020,8 +1230,19 @@
             "score": 9.866
           }
         ],
-        "run_id": "945b32508ac342c7879e6dc2b7413d27",
-        "elapsed_ms": 16
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11505,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "9de41c116bbd4ea68f885c9661dc74d3",
+        "elapsed_ms": 8422
       }
     },
     {
@@ -1032,23 +1253,13 @@
       "expected": "",
       "http_status": 200,
       "retrieval_hit_at_5": null,
-      "quote_verbatim_check": true,
+      "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
-        "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
-        "citations": [
-          {
-            "id": 19,
-            "document_id": 1,
-            "location": "文本 · 行 19 · 字 1",
-            "text": "项目暂不包含：施工图、工程报价、实际施工和商业运营方案。",
-            "document_name": "01-项目简报.md",
-            "score": 5.364,
-            "quote": "项目暂不包含：施工图、工程报价、实际施工和商业运营方案。"
-          }
-        ],
+        "mode": "llm",
+        "abstained": true,
+        "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
+        "citations": [],
         "candidates": [
           {
             "id": 19,
@@ -1059,8 +1270,19 @@
             "score": 5.364
           }
         ],
-        "run_id": "76635a17511c48a3beced75a44a2c2af",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11500,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "ce7dedb174724e62bab6783956376ad5",
+        "elapsed_ms": 11187
       }
     },
     {
@@ -1071,41 +1293,13 @@
       "expected": "",
       "http_status": 200,
       "retrieval_hit_at_5": null,
-      "quote_verbatim_check": true,
+      "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
-        "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
-        "citations": [
-          {
-            "id": 1,
-            "document_id": 1,
-            "location": "文本 · 行 1 · 字 1",
-            "text": "# 青禾社区公共空间调研 · 自编虚构示例",
-            "document_name": "01-项目简报.md",
-            "score": 6.827,
-            "quote": "# 青禾社区公共空间调研 · 自编虚构示例"
-          },
-          {
-            "id": 3,
-            "document_id": 1,
-            "location": "文本 · 行 3 · 字 1",
-            "text": "项目目标：梳理青禾社区公共空间的使用需求，形成空间改善建议。",
-            "document_name": "01-项目简报.md",
-            "score": 5.468,
-            "quote": "项目目标：梳理青禾社区公共空间的使用需求，形成空间改善建议。"
-          },
-          {
-            "id": 4,
-            "document_id": 1,
-            "location": "文本 · 行 4 · 字 1",
-            "text": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。",
-            "document_name": "01-项目简报.md",
-            "score": 5.16,
-            "quote": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。"
-          }
-        ],
+        "mode": "llm",
+        "abstained": true,
+        "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
+        "citations": [],
         "candidates": [
           {
             "id": 1,
@@ -1132,8 +1326,19 @@
             "score": 5.16
           }
         ],
-        "run_id": "c5f9d21a66614390920b69142eeee296",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11649,
+            "cached_input_tokens": 10240,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "f3300212c691477085613d4a9bba5c7a",
+        "elapsed_ms": 9953
       }
     },
     {
@@ -1144,23 +1349,13 @@
       "expected": "",
       "http_status": 200,
       "retrieval_hit_at_5": null,
-      "quote_verbatim_check": true,
+      "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
-        "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
-        "citations": [
-          {
-            "id": 13,
-            "document_id": 1,
-            "location": "文本 · 行 13 · 字 1",
-            "text": "居民隐私要求：不采集身份证号、手机号和人脸照片；访谈记录使用匿名编号。",
-            "document_name": "01-项目简报.md",
-            "score": 5.104,
-            "quote": "居民隐私要求：不采集身份证号、手机号和人脸照片；访谈记录使用匿名编号。"
-          }
-        ],
+        "mode": "llm",
+        "abstained": true,
+        "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
+        "citations": [],
         "candidates": [
           {
             "id": 13,
@@ -1171,8 +1366,19 @@
             "score": 5.104
           }
         ],
-        "run_id": "015ddaffe5454803acd38f49a4c450ea",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11506,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "ce3d9ec524da4ea1837e1473475c6ef3",
+        "elapsed_ms": 8719
       }
     },
     {
@@ -1183,50 +1389,13 @@
       "expected": "",
       "http_status": 200,
       "retrieval_hit_at_5": null,
-      "quote_verbatim_check": true,
+      "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
-        "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
-        "citations": [
-          {
-            "id": 26,
-            "document_id": 2,
-            "location": "文本 · 行 7 · 字 1",
-            "text": "待办：完成中心广场照明问题图 | 负责人：许宁 | 截止：2026-09-18",
-            "document_name": "02-会议记录.md",
-            "score": 5.906,
-            "quote": "待办：完成中心广场照明问题图 | 负责人：许宁 | 截止：2026-09-18"
-          },
-          {
-            "id": 15,
-            "document_id": 1,
-            "location": "文本 · 行 15 · 字 1",
-            "text": "文件命名规范：日期_空间名称_资料类型，例如 20260901_中心广场_观察记录。",
-            "document_name": "01-项目简报.md",
-            "score": 5.651,
-            "quote": "文件命名规范：日期_空间名称_资料类型，例如 20260901_中心广场_观察记录。"
-          },
-          {
-            "id": 23,
-            "document_id": 2,
-            "location": "文本 · 行 4 · 字 1",
-            "text": "现场发现：中心广场夜间照明不足；北侧步行街存在非机动车占道。",
-            "document_name": "02-会议记录.md",
-            "score": 5.201,
-            "quote": "现场发现：中心广场夜间照明不足；北侧步行街存在非机动车占道。"
-          },
-          {
-            "id": 4,
-            "document_id": 1,
-            "location": "文本 · 行 4 · 字 1",
-            "text": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。",
-            "document_name": "01-项目简报.md",
-            "score": 4.908,
-            "quote": "项目范围：青禾社区东侧口袋公园、中心广场与北侧步行街，共三个公共空间。"
-          }
-        ],
+        "mode": "llm",
+        "abstained": true,
+        "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
+        "citations": [],
         "candidates": [
           {
             "id": 26,
@@ -1261,8 +1430,19 @@
             "score": 4.908
           }
         ],
-        "run_id": "52607f43aa92458890521c26a13357c7",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11741,
+            "cached_input_tokens": 2688,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "49d6c9e5be7f4db28c2bf24b6f83d155",
+        "elapsed_ms": 7875
       }
     },
     {
@@ -1276,12 +1456,12 @@
       "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": true,
         "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
         "citations": [],
         "candidates": [],
-        "run_id": "3a6157b59bab4278ac218863d8b5dfa4",
+        "run_id": "dffd474a1eca497288486809ceea86d0",
         "elapsed_ms": 0
       }
     },
@@ -1296,13 +1476,13 @@
       "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": true,
         "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
         "citations": [],
         "candidates": [],
-        "run_id": "978602a9d5474b0d898843d129b0ca67",
-        "elapsed_ms": 15
+        "run_id": "a699c333b10f48659d1f48bf90c7501a",
+        "elapsed_ms": 0
       }
     },
     {
@@ -1316,13 +1496,13 @@
       "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": true,
         "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
         "citations": [],
         "candidates": [],
-        "run_id": "af67f1b3f2004faabb8141de8c949657",
-        "elapsed_ms": 0
+        "run_id": "506cb82335a34caa8f06caf35401b9db",
+        "elapsed_ms": 15
       }
     },
     {
@@ -1336,13 +1516,13 @@
       "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": true,
         "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
         "citations": [],
         "candidates": [],
-        "run_id": "8f5e038a90884133b8f857ad0ab58019",
-        "elapsed_ms": 0
+        "run_id": "8f98e7ab796c40ffab90d66a2bfbfd5f",
+        "elapsed_ms": 16
       }
     },
     {
@@ -1353,32 +1533,13 @@
       "expected": "",
       "http_status": 200,
       "retrieval_hit_at_5": null,
-      "quote_verbatim_check": true,
+      "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
-        "abstained": false,
-        "answer": "检索到以下相关原文，尚未判断其是否完整回答问题；这不是大模型生成的答案。",
-        "citations": [
-          {
-            "id": 22,
-            "document_id": 2,
-            "location": "文本 · 行 3 · 字 1",
-            "text": "访谈当前进度：已完成 16 名居民访谈，距离 24 名目标尚差 8 名。",
-            "document_name": "02-会议记录.md",
-            "score": 10.738,
-            "quote": "访谈当前进度：已完成 16 名居民访谈，距离 24 名目标尚差 8 名。"
-          },
-          {
-            "id": 7,
-            "document_id": 1,
-            "location": "文本 · 行 7 · 字 1",
-            "text": "访谈样本目标：24 名居民，覆盖老年人、亲子家庭和通勤青年三类使用者。",
-            "document_name": "01-项目简报.md",
-            "score": 7.034,
-            "quote": "访谈样本目标：24 名居民，覆盖老年人、亲子家庭和通勤青年三类使用者。"
-          }
-        ],
+        "mode": "llm",
+        "abstained": true,
+        "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
+        "citations": [],
         "candidates": [
           {
             "id": 22,
@@ -1397,8 +1558,19 @@
             "score": 7.034
           }
         ],
-        "run_id": "87cd09309c674615b43c04fe4262cd7b",
-        "elapsed_ms": 0
+        "provider": {
+          "model": "gpt-6-astra",
+          "provider": "codex_cli",
+          "usage": {
+            "input_tokens": 11596,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "run_id": "a854e5315c334a47bc6b9a6f1e53086a",
+        "elapsed_ms": 8703
       }
     },
     {
@@ -1412,12 +1584,12 @@
       "quote_verbatim_check": null,
       "human_semantic_verdict": "not_reviewed",
       "output": {
-        "mode": "evidence",
+        "mode": "llm",
         "abstained": true,
         "answer": "资料不足，无法据此作答。请补充资料或换用资料中的关键词。",
         "citations": [],
         "candidates": [],
-        "run_id": "d320cdcccb704986b5a8d84460a68056",
+        "run_id": "3e93319e4c964e4294db896776c856b6",
         "elapsed_ms": 0
       }
     }

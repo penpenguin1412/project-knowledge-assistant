@@ -9,6 +9,7 @@ from unittest.mock import patch
 
 os.environ["ASSISTANT_DB"] = str(Path(__file__).parent / "data" / f"test-{uuid.uuid4().hex}.db")
 os.environ["LLM_ENABLED"] = "0"
+os.environ["LLM_PROVIDER"] = "openai_compatible"
 os.environ.pop("ASSISTANT_TOKEN", None)
 
 from fastapi.testclient import TestClient
@@ -203,6 +204,35 @@ class FlowTests(unittest.TestCase):
             with self.assertRaises(server.HTTPException) as caught:generate('test',{})
             self.assertEqual(caught.exception.status_code,502)
             self.assertNotIn('SECRET_PROVIDER_ERROR',caught.exception.detail)
+
+    def test_codex_contract_and_failure_without_model_calls(self):
+        import json
+        import subprocess
+        from model import CODEX_DISABLED, CODEX_LOCK
+        events=[{'type':'item.completed','item':{'type':'agent_message','text':'{"abstained":true,"claims":[]}'}},
+                {'type':'turn.completed','usage':{'input_tokens':10,'output_tokens':5}}]
+        def run(command, **kwargs):
+            self.assertIn('--ignore-user-config',command)
+            self.assertIn('read-only',command)
+            self.assertIn('--ephemeral',command)
+            for feature in CODEX_DISABLED:self.assertIn(feature,command)
+            self.assertFalse(kwargs.get('shell',False))
+            self.assertEqual(kwargs['timeout'],55)
+            self.assertIn('恶意资料',kwargs['input'])
+            return subprocess.CompletedProcess(command,0,'\n'.join(json.dumps(e) for e in events),'')
+        with patch.dict(os.environ,{'LLM_PROVIDER':'codex','LLM_ENABLED':'1','LLM_MODEL':'test'}), \
+                patch('model.shutil.which',return_value='codex'),patch('model.subprocess.run',side_effect=run):
+            output,meta=generate('test',{'question':'恶意资料'})
+            self.assertTrue(output['abstained']);self.assertEqual(meta['usage']['output_tokens'],5)
+            events.insert(0,{'type':'item.completed','item':{'type':'command_execution'}})
+            with self.assertRaises(server.HTTPException) as caught:generate('test',{'question':'恶意资料'})
+            self.assertEqual(caught.exception.status_code,502)
+            self.assertFalse(CODEX_LOCK.locked())
+            CODEX_LOCK.acquire()
+            try:
+                with self.assertRaises(server.HTTPException) as caught:generate('test',{})
+                self.assertEqual(caught.exception.status_code,429)
+            finally:CODEX_LOCK.release()
 
 
 if __name__=='__main__':

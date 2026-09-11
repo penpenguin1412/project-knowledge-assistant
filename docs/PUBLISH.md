@@ -1,5 +1,15 @@
 # GitHub 发布交接
 
+## 当前发布记录
+
+2026-09-12 已发布至 [penpenguin1412/project-knowledge-assistant](https://github.com/penpenguin1412/project-knowledge-assistant)，可见性为 **私有**，默认分支 `main`。用户授权接通官方 GitHub CLI；仓库采用其全权委托下的私有默认值，未公开代码或数据。
+
+首次推送提交 `884a2d1b2e98d268809cf182dd4d3f0dd1b3cc89` 与远程 `refs/heads/main` 一致，后续文档更新继续沿用该分支。只提交了作品文件；本机数据库、虚拟环境及凭据未进入 Git。
+
+自动验证入口：[GitHub Actions](https://github.com/penpenguin1412/project-knowledge-assistant/actions)。每次推送执行不调用真实模型的测试和评测，并保留评测结果 artifact。真实模型通过本机已登录的 Codex CLI 单独验证，不能把流水线通过理解为模型效果通过。
+
+## 后续发布操作
+
 本仓库可以公开审查的内容仅为源码、锁定依赖、非敏感示例、离线基线报告和虚构数据截图。不能提交父目录 WORK2、真实资料或数据库。
 
 发布前确认目标 GitHub 账户、仓库名称及公开/私有。使用 GitHub CLI 正常浏览器登录，不把密码、验证码、PAT 或 API 密钥发到聊天里。
