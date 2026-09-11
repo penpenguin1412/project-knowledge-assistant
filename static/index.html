@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>知行 · 项目资料助手</title><link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/">知行<span>PROJECT ASSISTANT</span></a>
+  <div class="workspace-label">我的工作空间</div>
+  <label for="project">当前项目</label><select id="project"><option value="">请选择项目</option></select>
+  <form id="create-project"><label class="sr-only" for="project-name">新项目名称</label><div class="inline"><input id="project-name" placeholder="新项目名称" required maxlength="80"><button title="创建项目" aria-label="创建项目">＋</button></div></form>
+  <nav aria-label="主导航">
+    <button class="nav active" data-page="ask" aria-current="page">01 <span>资料问答</span></button>
+    <button class="nav" data-page="documents">02 <span>项目资料</span><span id="doc-count" class="count">0</span></button>
+    <button class="nav" data-page="meetings">03 <span>会议转待办</span></button>
+    <button class="nav" data-page="tasks">04 <span>待办清单</span><span id="task-count" class="count">0</span></button>
+    <button class="nav" data-page="runs">05 <span>运行记录</span></button>
+  </nav>
+  <div class="sidebar-bottom"><span class="local-dot"></span> 本机工作空间<p>资料保存在本机 SQLite<br>真实模型调用需要单独启用</p><button id="demo" class="secondary">载入示例项目</button><button id="access" class="text-button">设置本机访问口令</button></div>
+</aside>
+<main>
+  <header><div><span class="eyebrow">从资料到行动，每一步有据可查</span><h1 id="page-title">资料问答</h1></div><span class="pill">LOCAL WORKSPACE</span></header>
+  <div id="notice" role="status" aria-live="polite" hidden></div>
+  <div id="model-notice" class="model-note">正在检查服务状态…</div>
+  <section id="ask" class="page">
+    <div class="intro"><h2>让答案，回到原文。</h2><p>先选一个项目，围绕已导入的资料提问。每条引用都可以展开核对。</p></div>
+    <div class="workflow"><span><b>1</b> 导入资料</span><i>→</i><span><b>2</b> 检索证据</span><i>→</i><span><b>3</b> 核对出处</span></div>
+    <form id="ask-form" class="card composer"><label for="question">关于这个项目，你想了解什么？</label><textarea id="question" required minlength="2" maxlength="1000" placeholder="例如：项目需要交付哪些成果？" rows="3"></textarea><div class="form-footer"><label class="mode-label">工作方式 <select id="qa-mode"><option value="evidence">原文检索 · 不调用模型</option><option value="llm">真实模型问答 · 发送资料</option></select></label><button class="primary">查找依据 <span>↗</span></button></div></form>
+    <div class="suggestions"><span>试着问</span><button data-question="项目交付物有哪些？">项目交付物有哪些？</button><button data-question="居民隐私要求是什么？">居民隐私要求是什么？</button><button data-question="座椅采购预算是多少？">座椅采购预算是多少？</button></div>
+    <div id="answer" aria-live="polite"><div class="empty"><span class="empty-symbol">“</span><h3>答案从真实资料开始</h3><p>导入项目简报、会议纪要或方案说明。<br>首次体验可点击左下角「载入示例项目」。</p></div></div>
+  </section>
+  <section id="documents" class="page" hidden><div class="section-heading"><div><h2>项目的共同记忆</h2><p>仅检索当前项目内未归档的资料。原始上传文件不会保存。</p></div></div><form id="upload-form" class="card upload"><label for="file">导入项目资料</label><p>支持 UTF-8 TXT / MD、文字 PDF 和 DOCX；最大 5 MB、12 万字符、PDF 100 页。扫描件请先 OCR。</p><div class="inline"><input id="file" type="file" accept=".txt,.md,.pdf,.docx" required><button class="primary">导入并建立索引</button></div></form><div id="document-list"></div></section>
+  <section id="meetings" class="page" hidden><div class="section-heading"><div><h2>把讨论，变成下一步</h2><p>提取只创建草稿。核对原文、负责人和日期，勾选后确认入库。</p></div><button id="meeting-example" class="secondary">填入示例会议</button></div><form id="meeting-form" class="card"><label for="meeting-text">会议记录</label><textarea id="meeting-text" rows="9" required minlength="5" maxlength="20000" placeholder="规则模式识别格式：&#10;待办：完成问题地图 | 负责人：许宁 | 截止：2026-09-18&#10;&#10;自由文本请使用真实模型提取。"></textarea><div class="form-footer"><label class="mode-label">提取方式 <select id="meeting-mode"><option value="rules">明确格式规则 · 不调用模型</option><option value="llm">真实模型提取 · 发送会议记录</option></select></label><button class="primary">提取待确认草稿 ↗</button></div></form><div id="draft-list"></div></section>
+  <section id="tasks" class="page" hidden><div class="section-heading"><div><h2>每一项行动，都有来处</h2><p>只有人工确认的草稿会出现在这里。可修正信息、更新状态。</p></div><label>筛选状态 <select id="task-filter"><option value="all">全部状态</option><option value="todo">待开始</option><option value="doing">进行中</option><option value="done">已完成</option><option value="cancelled">已取消</option></select></label></div><div id="task-list"></div></section>
+  <section id="runs" class="page" hidden><div class="section-heading"><div><h2>看见每次运行的过程</h2><p>最近 100 次提问与提取，保留输入、引用快照、用时和模型调用状态。</p></div><button id="export-runs" class="secondary">导出 JSON</button></div><div id="run-list"></div></section>
+  <footer>知行 · 项目资料问答与待办助手 <span>引用可核对 · 行动需确认 · 效果如实记录</span></footer>
+</main>
+<dialog id="source-dialog"><div class="section-heading"><h2 id="source-title">资料原文</h2><button id="close-source" class="secondary">关闭</button></div><div id="source-content"></div></dialog>
+<dialog id="token-dialog"><form id="token-form"><h2>本机访问口令</h2><p>只在服务配置了 ASSISTANT_TOKEN 时需要。请勿在此输入模型 API 密钥。</p><label for="token">访问口令（仅当前页面内存保存）</label><input id="token" type="password" autocomplete="off"><div class="form-footer"><button type="button" id="close-token" class="secondary">取消</button><button class="primary">连接</button></div></form></dialog>
+</body></html>
