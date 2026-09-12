@@ -4,7 +4,7 @@
 
 这是一个 **FastAPI + SQLite + 原生 HTML/CSS/JavaScript** 的本机应用。浏览器页面连接真实后端，资料、草稿、待办和运行记录持久化保存。无需 Docker、Node 构建步骤或向量数据库。
 
-**当前验证状态：**21 项功能测试通过；30 题原文检索基线及真实 Codex 模型评测已完成，会议提取与浏览器真实问答已验证。2026-09-12 已推送到 [GitHub 私有仓库](https://github.com/penpenguin1412/project-knowledge-assistant)。此仓库不以离线检索、规则提取或测试替身冒充大模型结果；源码上传不代表应用已在线部署。
+**当前验证状态：**21 项功能测试通过；30 题原文检索基线及真实 Codex 模型评测已完成，会议提取与浏览器真实问答已验证。2026-09-12 已发布到 [GitHub 公开仓库](https://github.com/penpenguin1412/project-knowledge-assistant)，可直接用于招聘作品展示。此仓库不以离线检索、规则提取或测试替身冒充大模型结果；源码上传不代表应用已在线部署。
 
 ![桌面问答与原文引用演示](docs/screenshots/desktop.png)
 

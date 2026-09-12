@@ -2,7 +2,7 @@
 
 ## 当前发布记录
 
-2026-09-12 已发布至 [penpenguin1412/project-knowledge-assistant](https://github.com/penpenguin1412/project-knowledge-assistant)，可见性为 **私有**，默认分支 `main`。用户授权接通官方 GitHub CLI；仓库采用其全权委托下的私有默认值，未公开代码或数据。
+2026-09-12 已发布至 [penpenguin1412/project-knowledge-assistant](https://github.com/penpenguin1412/project-knowledge-assistant)，可见性为 **公开**，默认分支 `main`。仓库最初采用私有默认值；用户随后要求用于招聘作品展示，已改为公开。公开内容为项目源码、自编虚构示例与验证报告，本机数据库及登录凭据未上传。
 
 首次推送提交 `884a2d1b2e98d268809cf182dd4d3f0dd1b3cc89` 与远程 `refs/heads/main` 一致，后续文档更新继续沿用该分支。只提交了作品文件；本机数据库、虚拟环境及凭据未进入 Git。
 

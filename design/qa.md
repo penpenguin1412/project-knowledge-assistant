@@ -36,7 +36,7 @@
 
 ## 结论
 
-**本机原文检索、真实模型问答及人工确认待办流程可演示。** 2026-09-12 已发布到 GitHub 私有仓库 `penpenguin1412/project-knowledge-assistant`；发布记录见 docs/PUBLISH.md。
+**本机原文检索、真实模型问答及人工确认待办流程可演示。** 2026-09-12 已发布到 GitHub，并按用户的招聘展示用途设为公开：`penpenguin1412/project-knowledge-assistant`；发布记录见 docs/PUBLISH.md。
 
 ## 2026-09-12 Codex 补验
 
